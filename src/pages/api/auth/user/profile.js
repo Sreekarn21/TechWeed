@@ -1,8 +1,9 @@
 import User from '@/models/User';
+
+
 import dbConnect from '@/lib/mongodb';
 
-import connectDB from "../../../lib/mongodb";
-import authMiddleware from '@/middleware/auth';
+
 
 
 
