@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
-import { connectDB } from "../lib/mongodb";
+import connectDB from '@/lib/mongodb'; // ✅ Use default export
+
 import User from "../models/User";
 
 export async function authenticate(req, res, next) {

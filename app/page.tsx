@@ -31,7 +31,7 @@ export default function Home() {
         className="mt-6"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        transition={{ delay: 0.5, duration: 1 }}
+        transition={{ duration: 0.3 }}
       >
         <Link href="/courses">
           <button className="px-6 py-3 bg-blue-600 text-white rounded-lg text-lg font-semibold tracking-wide hover:bg-blue-700">

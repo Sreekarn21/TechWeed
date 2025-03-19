@@ -1,4 +1,5 @@
-import { connectDB } from "../../lib/mongodb";
+import connectDB from '@/lib/mongodb'; // ✅ Use default export
+
 
 
 export default async function handler(req, res) {
