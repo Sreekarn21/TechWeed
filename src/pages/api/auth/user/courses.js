@@ -1,11 +1,7 @@
 import dbConnect from '@/lib/mongodb';
 import authMiddleware from '@/middleware/auth';
-import Course from '@/models/Course'; // Use absolute import
+import Course from '@/models/Course'; // Correct path
 
-
-
-
-import Course from "../../../models/Course";
 
 export default async function handler(req, res) {
   if (req.method !== "GET") {
