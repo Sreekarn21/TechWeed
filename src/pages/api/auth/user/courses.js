@@ -1,7 +1,7 @@
-import User from '@/models/User';
-import Course from '@/models/Course';
 import dbConnect from '@/lib/mongodb';
 import authMiddleware from '@/middleware/auth';
+import Course from '@/models/Course'; // Use absolute import
+
 
 
 
