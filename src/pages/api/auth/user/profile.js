@@ -1,4 +1,5 @@
-import dbConnect from '@/lib/mongodb';
+import dbConnect from '../../../../lib/mongodb';
+
 import User from '@/models/User';
 import { getSession } from 'next-auth/react';
 
