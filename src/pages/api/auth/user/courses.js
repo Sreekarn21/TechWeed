@@ -1,6 +1,3 @@
-import dbConnect from '@/lib/mongodb';
-import authMiddleware from '@/middleware/auth';
-import Course from '@/models/Course'; // Correct path
 
 
 export default async function handler(req, res) {
