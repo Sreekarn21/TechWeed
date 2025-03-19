@@ -1,4 +1,5 @@
-import User from "../../../models/User";
+import User from '@/models/User';
+
 import connectDB from "../../../lib/mongodb";
 import authMiddleware from "../../../middleware/auth";
 
