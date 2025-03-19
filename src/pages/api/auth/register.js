@@ -1,6 +1,6 @@
+import User from "../../../models/User";
 import connectDB from "../../../lib/mongodb";
-import User from "@/models/User";
-import bcrypt from "bcryptjs";
+import authMiddleware from "../../../middleware/auth";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method Not Allowed" });
