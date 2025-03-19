@@ -1,14 +1,26 @@
 import jwt from "jsonwebtoken";
+import { connectDB } from "../lib/mongodb";
+import User from "../models/User";
 
-export function verifyToken(req, res, next) {
+export async function authenticate(req, res, next) {
   const token = req.headers.authorization?.split(" ")[1];
-  if (!token) return res.status(401).json({ error: "Access denied" });
+
+  if (!token) {
+    return res.status(401).json({ message: "Unauthorized: No token provided" });
+  }
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded;
+    await connectDB();
+    const user = await User.findById(decoded.userId).select("-password");
+
+    if (!user) {
+      return res.status(401).json({ message: "Unauthorized: User not found" });
+    }
+
+    req.user = user; // Attach user object to request
     next();
   } catch (error) {
-    res.status(401).json({ error: "Invalid token" });
+    return res.status(401).json({ message: "Unauthorized: Invalid token" });
   }
 }

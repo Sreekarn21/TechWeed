@@ -2,18 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Metallic Chic Theme */
+/* Dark Theme Variables */
 :root {
-  --primary: #3D52A0; /* Dark Blue */
-  --secondary: #7091E6; /* Light Blue */
-  --accent: #8697C4; /* Muted Blue */
-  --background: #ADBBDA; /* Soft Grey-Blue */
-  --text: #EDEBF5; /* Light Grey */
+  --primary: #1e1e2e; /* Dark Purple-Blue */
+  --secondary: #313244; /* Deep Grey-Blue */
+  --accent: #cba6f7; /* Soft Purple */
+  --background: #0f0f17; /* Almost Black */
+  --text: #e0def4; /* Light Greyish-White */
 }
 
-/* Apply the theme */
+/* Apply the Dark Theme */
 body {
   font-family: sans-serif;
   background-color: var(--background);
   color: var(--text);
+}
+
+/* Navbar Background */
+nav {
+  background-color: var(--primary);
+}
+
+/* Buttons */
+button {
+  background-color: var(--secondary);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 10px 15px;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background-color: var(--accent);
+  color: var(--background);
 }

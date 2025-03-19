@@ -1,26 +1,16 @@
 import mongoose from "mongoose";
+export const connectDB = async () => {
+  if (mongoose.connection.readyState >= 1) return;
 
-const MONGODB_URI = process.env.MONGODB_URI;
-
-if (!MONGODB_URI) {
-  throw new Error("⚠️ MONGODB_URI is missing in .env");
-}
-
-let cached = global.mongoose || { conn: null, promise: null };
-
-async function dbConnect() {
-  if (cached.conn) return cached.conn;
-
-  if (!cached.promise) {
-    cached.promise = mongoose.connect(MONGODB_URI, {
-      dbName: "TechWeedDB",
+  try {
+    await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-    }).then((mongoose) => mongoose);
+    });
+    console.log("✅ MongoDB Connected");
+  } catch (error) {
+    console.error("❌ MongoDB Connection Error:", error);
+    process.exit(1); // Stop process if DB connection fails
   }
+};
 
-  cached.conn = await cached.promise;
-  return cached.conn;
-}
-
-export default dbConnect;
