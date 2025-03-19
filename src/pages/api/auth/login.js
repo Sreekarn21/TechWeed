@@ -1,6 +1,7 @@
-import { connectDB } from "../../../lib/mongodb";  
+import connectDB from "../../../lib/mongodb";  // ✅ Default import (correct)
 
-import User from "@/models/User";
+
+import User from "../../../models/User";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
